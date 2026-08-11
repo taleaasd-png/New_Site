@@ -1,19 +1,37 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-const socials = [
-  { name: 'Instagram', url: 'https://instagram.com/taleabasket', icon: '📷' },
-  { name: 'Facebook', url: 'https://facebook.com/taleabasket', icon: '👍' },
-  { name: 'Twitch', url: 'https://twitch.tv/taleabasket', icon: '🎮' },
-]
+import Image from 'next/image'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
+  const socialLinks = [
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/taleabasket',
+      icon: '/images/Logo_I.png',
+      alt: 'Instagram'
+    },
+    {
+      name: 'Facebook',
+      url: 'https://facebook.com/taleabasket',
+      icon: '/images/Logo_F.png',
+      alt: 'Facebook'
+    },
+    {
+      name: 'Twitch',
+      url: 'https://twitch.tv/taleabasket',
+      icon: '/images/Logo_T.png',
+      alt: 'Twitch'
+    },
+  ]
+
   return (
     <footer className="bg-talea-black border-t border-talea-orange/20 py-12 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* About */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Colonna 1: Logo e Descrizione */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,11 +42,11 @@ export default function Footer() {
               TALEA BASKET
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              100% dedicata al basket femminile. Crescita umana e sportiva delle nostre ragazze, dalla U14 alla Serie C.
+              Basket femminile 100% dal 2019. Territorio, passione e dedizione in ogni allenamento e partita.
             </p>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Colonna 2: Link Rapidi */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,14 +57,14 @@ export default function Footer() {
               Link Rapidi
             </h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-400 hover:text-talea-orange transition-colors">Le nostre squadre</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-talea-orange transition-colors">Calendario</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-talea-orange transition-colors">Iscrizioni</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-talea-orange transition-colors">Contatti</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-talea-orange transition-colors">Home</a></li>
+              <li><a href="#squadre" className="text-gray-400 hover:text-talea-orange transition-colors">Squadre</a></li>
+              <li><a href="#gare" className="text-gray-400 hover:text-talea-orange transition-colors">Gare</a></li>
+              <li><a href="#staff" className="text-gray-400 hover:text-talea-orange transition-colors">Staff</a></li>
             </ul>
           </motion.div>
 
-          {/* Social */}
+          {/* Colonna 3: Contatti */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,36 +72,67 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h4 className="font-bebas text-lg font-black text-talea-orange mb-4">
-              Seguici
+              Contatti
             </h4>
-            <div className="flex gap-4">
-              {socials.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-12 h-12 bg-gradient-to-br from-talea-orange to-orange-600 rounded-full flex items-center justify-center text-xl hover:shadow-lg hover:shadow-talea-orange/50 transition-all"
-                  title={social.name}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
+            <ul className="space-y-2 text-sm">
+              <li className="text-gray-400">
+                <span className="font-semibold">Email:</span><br />
+                info@taleabasket.it
+              </li>
+              <li className="text-gray-400">
+                <span className="font-semibold">Città:</span><br />
+                Ostia, Roma
+              </li>
+            </ul>
           </motion.div>
         </div>
 
-        {/* Bottom */}
+        {/* Divisore */}
+        <div className="h-px bg-talea-orange/20 my-8"></div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-8 mb-8"
+        >
+          {socialLinks.map((social, idx) => (
+            <a
+              key={idx}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all hover:scale-125 hover:brightness-125"
+              title={social.name}
+            >
+              <div className="w-12 h-12 relative">
+                <Image
+                  src={social.icon}
+                  alt={social.alt}
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
+              </div>
+            </a>
+          ))}
+        </motion.div>
+
+        {/* Copyright */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="border-t border-talea-orange/20 pt-8 text-center"
+          className="text-center text-gray-500 text-sm"
         >
-          <p className="text-gray-500 text-sm">
-            © 2026 Talea Basket Ostia | Pallacanestro Femminile 100%
+          <p>
+            © {currentYear} Talea Basket Ostia. Tutti i diritti riservati.
+          </p>
+          <p className="mt-2 text-xs">
+            Passione, dedizione, basket femminile 🏀
           </p>
         </motion.div>
       </div>
