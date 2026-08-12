@@ -130,12 +130,25 @@ export default function Hero() {
             Crescita umana e sportiva delle nostre ragazze
           </motion.p>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col gap-4 items-center justify-center"
           >
+            {/* Pulsante Macron Shop */}
+            <a href="https://clubshop.macron.com/roma/pallacanestro-talea/merchandising" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 hover:bg-white/20 border-2 border-talea-orange text-talea-orange font-bebas text-lg px-10 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider font-black drop-shadow-lg backdrop-blur-sm"
+              >
+                🛍️ Visita lo Shop Macron
+              </motion.button>
+            </a>
+
+            {/* Pulsante Squadre */}
             <a href="#squadre" className="inline-block">
               <motion.button
                 whileHover={{ scale: 1.05 }}
