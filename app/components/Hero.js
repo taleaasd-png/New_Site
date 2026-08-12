@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full bg-talea-black flex items-center justify-center px-6 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-80px)] w-full bg-talea-black flex items-center justify-center px-6 overflow-hidden pt-12">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +70,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           {/* Logo */}
-          <div className="mb-8">
+          <div className="mb-6">
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -95,7 +95,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-bebas text-6xl md:text-8xl font-black text-talea-orange drop-shadow-lg"
+            className="font-bebas text-5xl md:text-7xl font-black text-talea-orange drop-shadow-lg"
           >
             TALEA
           </motion.h1>
@@ -105,7 +105,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-bebas text-6xl md:text-8xl font-black text-white drop-shadow-lg mb-6"
+            className="font-bebas text-5xl md:text-7xl font-black text-white drop-shadow-lg mb-4"
           >
             BASKET
           </motion.h1>
@@ -115,7 +115,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-gray-300 text-xl md:text-2xl mb-8 font-light"
+            className="text-gray-300 text-lg md:text-xl mb-4 font-light"
           >
             🏀 100% Basket Femminile 🏀
           </motion.p>
@@ -125,7 +125,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto"
+            className="text-gray-400 text-sm md:text-base mb-6 max-w-2xl mx-auto"
           >
             Crescita umana e sportiva delle nostre ragazze
           </motion.p>
@@ -135,16 +135,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col gap-4 items-center justify-center"
+            className="flex flex-col gap-4 items-center"
           >
-            {/* Pulsante Macron Shop */}
-            <a href="https://clubshop.macron.com/roma/pallacanestro-talea/merchandising" target="_blank" rel="noopener noreferrer" className="inline-block">
+            {/* Pulsante Sponsor */}
+            <a href="/sponsor" className="inline-block">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 hover:bg-white/20 border-2 border-talea-orange text-talea-orange font-bebas text-lg px-10 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider font-black drop-shadow-lg backdrop-blur-sm"
               >
-                🛍️ Visita lo Shop Macron
+                👥 I Nostri Sponsor
               </motion.button>
             </a>
 
@@ -164,7 +164,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="mt-16"
+            className="mt-8"
           >
             <p className="text-gray-400 text-sm mb-2">Scorri verso il basso</p>
             <svg

@@ -20,15 +20,18 @@ export default function StaffComponent({ categoria }) {
         const grouped = {}
         filtered.forEach(item => {
           if (!grouped[item.Nome]) {
-            grouped[item.Nome] = []
+            grouped[item.Nome] = {
+              nome: item.Nome,
+              ruoli: []
+            }
           }
-          grouped[item.Nome].push(item.Ruolo)
+          grouped[item.Nome].ruoli.push(item.Ruolo)
         })
         
-        // Converti in array
-        const staffArray = Object.entries(grouped).map(([nome, ruoli]) => ({
-          Nome: nome,
-          Ruoli: ruoli
+        // Converti in array e rimuovi duplicati
+        const staffArray = Object.entries(grouped).map(([nome, info]) => ({
+          nome: nome,
+          ruoli: [...new Set(info.ruoli)] // Rimuovi ruoli duplicati
         }))
         
         setStaff(staffArray)
@@ -68,11 +71,11 @@ export default function StaffComponent({ categoria }) {
           >
             <div>
               <p className="text-white font-bebas text-lg font-black">
-                {membro.Nome}
+                {membro.nome}
               </p>
               
               <div className="mt-4 pt-4 border-t border-white/20 space-y-2">
-                {membro.Ruoli.map((ruolo, ridx) => (
+                {membro.ruoli.map((ruolo, ridx) => (
                   <p key={ridx} className="text-white/90 text-sm">
                     🎓 {ruolo}
                   </p>

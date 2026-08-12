@@ -13,25 +13,25 @@ export default function Staff() {
         const response = await fetch('https://sheetdb.io/api/v1/m2q6s6csmvhb9?sheet=STAFF')
         const data = await response.json()
         
-        // Raggruppa per Nome (ignora categoria)
+        // Raggruppa per Nome, mantenendo tutti i ruoli e categorie
         const grouped = {}
         data.forEach(item => {
           if (!grouped[item.Nome]) {
             grouped[item.Nome] = {
-              ruoli: [],
-              categorie: []
+              nome: item.Nome,
+              rolesByCategory: [] // Array di {ruolo, categoria}
             }
           }
-          grouped[item.Nome].ruoli.push(item.Ruolo)
-          grouped[item.Nome].categorie.push(item.Categoria)
+          grouped[item.Nome].rolesByCategory.push({
+            ruolo: item.Ruolo,
+            categoria: item.Categoria
+          })
         })
         
-        // Rimuovi duplicati e converti in array
-        const staffArray = Object.entries(grouped).map(([nome, info]) => ({
-          Nome: nome,
-          Ruoli: [...new Set(info.ruoli)], // Rimuovi ruoli duplicati
-          Categorie: [...new Set(info.categorie)] // Rimuovi categorie duplicate
-        }))
+        // Converti in array e ordina alfabeticamente per nome
+        const staffArray = Object.values(grouped).sort((a, b) => 
+          a.nome.localeCompare(b.nome)
+        )
         
         setStaff(staffArray)
         setLoading(false)
@@ -75,18 +75,18 @@ export default function Staff() {
               className="bg-gradient-to-br from-talea-orange to-orange-500 rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <div>
-                <p className="text-white font-bebas text-2xl font-black mb-1">
-                  {membro.Nome}
+                <p className="text-white font-bebas text-2xl font-black mb-4">
+                  {membro.nome}
                 </p>
                 
-                <div className="pt-4 border-t border-white/20 space-y-3 mt-4">
-                  {membro.Ruoli.map((ruolo, ridx) => (
-                    <div key={ridx} className="text-white/90 text-sm">
-                      <p className="font-semibold">🎓 {ruolo}</p>
-                      <p className="text-white/70 text-xs ml-5 mt-1">
-                        {membro.Categorie.filter((_, cidx) => 
-                          membro.Ruoli.filter((_, cridx) => cridx === ridx).length > 0
-                        ).join(', ') || membro.Categorie.join(', ')}
+                <div className="pt-4 border-t border-white/20 space-y-3">
+                  {membro.rolesByCategory.map((item, ridx) => (
+                    <div key={ridx} className="text-white/90">
+                      <p className="font-semibold text-sm">
+                        🎓 {item.ruolo}
+                      </p>
+                      <p className="text-white/70 text-xs ml-5">
+                        {item.categoria}
                       </p>
                     </div>
                   ))}

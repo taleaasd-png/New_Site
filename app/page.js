@@ -1,5 +1,6 @@
 import Hero from './components/Hero'
 import Staff from './components/Staff'
+import Header from './components/Header'
 import GamesAndResults from './components/GamesAndResults'
 import PhotoGallery from './components/PhotoGallery'
 import Categories from './components/Categories'
@@ -9,6 +10,7 @@ import Footer from './components/Footer'
 export default function Home() {
   return (
     <main className="w-full overflow-hidden">
+      <Header />
       <Hero />
       <Staff />
       <Categories />
