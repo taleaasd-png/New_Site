@@ -28,7 +28,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
         {/* Logo + Sponsor LEFT */}
-        <div className="flex items-center gap-4 h-16">
+        <div className="flex items-center gap-4 h-auto">
           {/* Logo Talea - Drop shadow bianco come nella Hero */}
           <Link href="/">
             <motion.div
@@ -100,6 +100,32 @@ export default function Header() {
               width={80}
               height={40}
               className="object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none'
+              }}
+            />
+          </motion.div>
+
+          {/* Sponsor Macron */}
+          <motion.div
+            animate={{
+              width: isScrolled ? 50 : 80,
+              height: isScrolled ? 25 : 40,
+            }}
+            transition={{ duration: 0.3 }}
+            className="relative flex-shrink-0 flex items-center justify-center"
+          >
+            <Image
+              src="/images/logo_macron.png"
+              alt="Macron Sponsor"
+              width={80}
+              height={40}
+              className="object-contain"
+              style={{
+                filter: isScrolled 
+                  ? 'drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white)'
+                  : 'drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white) drop-shadow(-2px -2px 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)'
+              }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
               }}

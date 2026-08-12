@@ -137,14 +137,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col gap-4 items-center"
           >
-            {/* Pulsante Sponsor */}
-            <a href="/sponsor" className="inline-block">
+            {/* Pulsante Shop Macron */}
+            <a href="https://clubshop.macron.com/roma/pallacanestro-talea/merchandising" target="_blank" rel="noopener noreferrer" className="inline-block">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 hover:bg-white/20 border-2 border-talea-orange text-talea-orange font-bebas text-lg px-10 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider font-black drop-shadow-lg backdrop-blur-sm"
               >
-                👥 I Nostri Sponsor
+                🛍️ Visita lo Shop Macron
               </motion.button>
             </a>
 

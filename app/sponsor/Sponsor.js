@@ -113,7 +113,7 @@ export default function Sponsor() {
       {/* Sponsor Cards */}
       <section className="py-20 px-6 bg-talea-black">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             {/* Origin Sponsor */}
             <motion.a
               href="https://www.originsolutions.it"
@@ -189,6 +189,49 @@ export default function Sponsor() {
                 </h3>
                 <p className="text-white/90 text-center mb-6">
                   Supporter storico della crescita di Talea Basket
+                </p>
+
+                {/* CTA */}
+                <div className="mt-auto">
+                  <p className="text-white text-sm uppercase font-semibold tracking-wider">
+                    Visita il sito →
+                  </p>
+                </div>
+              </div>
+            </motion.a>
+
+            {/* Macron Sponsor */}
+            <motion.a
+              href="https://www.macron.com/it/"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -20, scale: 1.05 }}
+              className="relative group cursor-pointer"
+            >
+              <div className="bg-gradient-to-br from-talea-orange to-orange-600 rounded-2xl p-12 shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 h-full flex flex-col items-center justify-center min-h-96">
+                {/* Logo Container */}
+                <div className="relative w-48 h-48 mb-8">
+                  <Image
+                    src="/images/logo_macron.png"
+                    alt="Macron"
+                    fill
+                    className="object-contain drop-shadow-2xl"
+                    style={{
+                      filter: 'drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white) drop-shadow(-2px -2px 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)'
+                    }}
+                  />
+                </div>
+
+                {/* Text */}
+                <h3 className="text-white font-bebas text-3xl font-black mb-3">
+                  MACRON
+                </h3>
+                <p className="text-white/90 text-center mb-6">
+                  Fornitore ufficiale di attrezzature sportive per Talea Basket
                 </p>
 
                 {/* CTA */}
