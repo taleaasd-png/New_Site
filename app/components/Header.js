@@ -57,11 +57,11 @@ export default function Header() {
           {/* Sponsor Origin */}
           <motion.div
             animate={{
-              width: isScrolled ? 50 : 80,
-              height: isScrolled ? 25 : 40,
+              width: isScrolled ? 45 : 65,
+              height: isScrolled ? 45 : 65,
             }}
             transition={{ duration: 0.3 }}
-            className="relative flex-shrink-0 flex items-center"
+            className="relative flex-shrink-0 flex items-center justify-center"
             style={{
               filter: isScrolled 
                 ? 'drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white)'
@@ -71,8 +71,8 @@ export default function Header() {
             <Image
               src="/images/origin-logo.svg"
               alt="Origin Sponsor"
-              width={80}
-              height={40}
+              width={65}
+              height={65}
               className="object-contain"
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
@@ -83,8 +83,8 @@ export default function Header() {
           {/* Sponsor Lame */}
           <motion.div
             animate={{
-              width: isScrolled ? 50 : 80,
-              height: isScrolled ? 25 : 40,
+              width: isScrolled ? 45 : 65,
+              height: isScrolled ? 45 : 65,
             }}
             transition={{ duration: 0.3 }}
             className="relative flex-shrink-0 flex items-center justify-center"
@@ -97,8 +97,8 @@ export default function Header() {
             <Image
               src="/images/lame-logo.png"
               alt="Lame Sponsor"
-              width={80}
-              height={40}
+              width={isScrolled ? 35 : 50}
+              height={isScrolled ? 35 : 50}
               className="object-contain"
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
@@ -109,23 +109,23 @@ export default function Header() {
           {/* Sponsor Macron */}
           <motion.div
             animate={{
-              width: isScrolled ? 50 : 80,
-              height: isScrolled ? 25 : 40,
+              width: isScrolled ? 45 : 65,
+              height: isScrolled ? 45 : 65,
             }}
             transition={{ duration: 0.3 }}
             className="relative flex-shrink-0 flex items-center justify-center"
+            style={{
+              filter: isScrolled 
+                ? 'drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white)'
+                : 'drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white) drop-shadow(-2px -2px 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)'
+            }}
           >
             <Image
               src="/images/logo_macron.png"
               alt="Macron Sponsor"
-              width={80}
-              height={40}
+              width={isScrolled ? 28 : 50}
+              height={isScrolled ? 28 : 50}
               className="object-contain"
-              style={{
-                filter: isScrolled 
-                  ? 'drop-shadow(1px 1px 0 white) drop-shadow(-1px 1px 0 white)'
-                  : 'drop-shadow(2px 2px 0 white) drop-shadow(-2px 2px 0 white) drop-shadow(2px -2px 0 white) drop-shadow(-2px -2px 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)'
-              }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
               }}
