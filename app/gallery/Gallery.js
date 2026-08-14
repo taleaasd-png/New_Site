@@ -237,9 +237,9 @@ export default function Gallery() {
                     </motion.button>
                   </div>
 
-                  {/* Grid Foto 100x100 */}
+                  {/* Grid Foto Responsive */}
                   <div className="p-8 bg-talea-black/50">
-                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
                       {selectedGallery.foto.map((link, idx) => {
                         console.log(`\n=== FOTO ${idx} ===`)
                         console.log(`RAW Link: ${link}`)
@@ -266,8 +266,8 @@ export default function Gallery() {
                             transition={{ duration: 0.3, delay: idx * 0.05 }}
                             className="flex flex-col items-center gap-3"
                           >
-                            {/* Foto 200x200 via Google CDN - CHIARA E NITIDA */}
-                            <div className="relative w-52 h-52 rounded-lg overflow-hidden bg-black/50 border border-talea-orange/30 hover:border-talea-orange transition-all">
+                            {/* Foto RESPONSIVE: Mobile 120px, Tablet 160px, Desktop 200px */}
+                            <div className="relative w-32 sm:w-40 md:w-52 h-32 sm:h-40 md:h-52 rounded-lg overflow-hidden bg-black/50 border border-talea-orange/30 hover:border-talea-orange transition-all">
                               {thumbnailUrl && (
                                 <img
                                   src={thumbnailUrl}
