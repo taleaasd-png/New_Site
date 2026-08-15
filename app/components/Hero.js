@@ -148,16 +148,30 @@ export default function Hero() {
               </motion.button>
             </a>
 
-            {/* Pulsante Squadre */}
-            <a href="#squadre" className="inline-block">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-talea-orange hover:bg-orange-600 text-white font-bebas text-xl px-10 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider font-black drop-shadow-lg"
-              >
-                Scopri le Squadre
-              </motion.button>
-            </a>
+            {/* Pulsanti Squadre + Safeguarding */}
+            <div className="flex flex-col md:flex-row gap-4">
+              {/* Pulsante Squadre */}
+              <a href="#squadre" className="inline-block">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-talea-orange hover:bg-orange-600 text-white font-bebas text-xl px-10 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider font-black drop-shadow-lg"
+                >
+                  Scopri le Squadre
+                </motion.button>
+              </a>
+
+              {/* Pulsante Safeguarding */}
+              <a href="/safeguarding" className="inline-block">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-talea-orange hover:bg-orange-600 text-white font-bebas text-xl px-10 py-4 rounded-lg transition-all duration-300 uppercase tracking-wider font-black drop-shadow-lg"
+                >
+                  🛡️ Safeguarding
+                </motion.button>
+              </a>
+            </div>
           </motion.div>
 
           {/* Scroll Indicator */}
